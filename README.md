@@ -105,3 +105,25 @@ Before you begin, ensure you have the following:
 
        if weight < threshold_weights[item_id]:
            order_item(item_id, weight)
+
+google-cloud-pubsub
+google-cloud-bigquery
+google-auth
+requests
+
+gcloud functions deploy process_weight_data \
+    --runtime python310 \
+    --trigger-topic weight-monitoring \
+    --entry-point process_weight_data \
+    --project your-google-cloud-project-id \
+    --set-env-vars GOOGLE_APPLICATION_CREDENTIALS=path/to/your/service-account-file.json
+
+
+# A pseudo-command illustrating system interaction
+monitor-weight-and-order --product "Product SKU" --threshold 10 --auto-order
+
+
+
+In this README file, the placeholders `path/to/your/image.png`, `path/to/your/service-account-file.json`, `your-google-cloud-project-id`, and `https://api.instakart.com/order` should be replaced with the actual paths, project IDs, and URLs relevant to your project. Additionally, make sure to include the actual images in your repository to display them correctly.
+
+
