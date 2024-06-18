@@ -118,6 +118,34 @@ gcloud functions deploy process_weight_data \
     --project your-google-cloud-project-id \
     --set-env-vars GOOGLE_APPLICATION_CREDENTIALS=path/to/your/service-account-file.json
 
+# Integrating Google Sheets and BigQuery for Inventory Management
+
+## Set Up Google Sheets
+
+1. **Create a Google Sheet**:
+   - Create a new Google Sheet for inventory tracking.
+   - Name it appropriately (e.g., Inventory Management Sheet).
+
+2. **Share the Sheet**:
+   - Share the Google Sheet with your GCP service account email to allow access for data updates and management.
+
+## Set Up BigQuery
+
+1. **Create a Dataset**:
+   - Open the BigQuery section in the Google Cloud Console.
+   - Create a new dataset named `weight_monitoring`.
+
+2. **Create a Table**:
+   - Within the `weight_monitoring` dataset, create a table named `weight_data`.
+   - Define the schema for the table, including fields like `item_id` (STRING), `weight` (FLOAT64), and `timestamp` (TIMESTAMP).
+
+   Example schema:
+   ```plaintext
+   item_id: STRING
+   weight: FLOAT64
+   timestamp: TIMESTAMP
+
+
 
 # A pseudo-command illustrating system interaction
 monitor-weight-and-order --product "Product SKU" --threshold 10 --auto-order
